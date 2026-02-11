@@ -186,6 +186,14 @@ setTimeout(()=>{
   document.getElementById("heartContainer").style.opacity = 1;
 },3000);
 </script>
+<!-- Background Music -->
+<audio id="bgm" src="bgm.mp3" autoplay loop></audio>
 
+<!-- Mobile tap trigger (optional) -->
+<script>
+document.body.addEventListener('click', ()=>{
+  document.getElementById('bgm').play();
+}, {once:true});
+</script>
 </body>
 </html>
