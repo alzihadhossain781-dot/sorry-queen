@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry Eva</title>
+<style>
+body {
+  background:#111;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  font-family:'Arial', sans-serif;
+  overflow:hidden;
+  color:white;
+  text-align:center;
+}
+
+/* Container */
+.container{
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+
+/* Cute Cartoon */
+.cartoon{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+/* Face */
+.face{
+  width:100px;
+  height:100px;
+  background:#ffd6a5;
+  border-radius:50%;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.eyes{
+  display:flex;
+  justify-content:space-between;
+  width:50px;
+  margin-top:10px;
+}
+
+.eye{
+  width:12px;
+  height:12px;
+  background:black;
+  border-radius:50%;
+  position:relative;
+}
+
+.eye::before{
+  content:'';
+  position:absolute;
+  top:-6px;
+  width:12px;
+  height:2px;
+  background:#000;
+  border-radius:1px;
+  transform: rotate(-20deg);
+}
+
+.eye:last-child::before{
+  transform: rotate(20deg);
+}
+
+.mouth{
+  width:40px;
+  height:20px;
+  border-bottom:3px solid #000;
+  border-radius:0 0 50px 50px;
+  margin-top:5px;
+  transform: rotate(180deg);
+}
+
+.tear{
+  width:6px;
+  height:12px;
+  background:#4da6ff;
+  border-radius:50%;
+  position:absolute;
+  left:70%;
+  top:60%;
+  animation: drop 2s infinite;
+}
+
+.body{
+  width:60px;
+  height:90px;
+  background:#ff4d6d;
+  border-radius:30px;
+  margin-top:-10px;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-15px);}
+}
+
+@keyframes drop{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(20px);opacity:0;}
+}
+
+/* Heart (initially hidden) */
+#heartContainer{
+  position:relative;
+  width:150px;
+  height:150px;
+  opacity:0;
+  transition: opacity 0.5s ease;
+}
+
+/* Messages */
+#msg1, #msg2{
+  font-size:26px; /* bigger */
+  max-width:400px;
+  opacity:0;
+  margin-top:15px;
+  line-height:1.3;
+  font-weight:500;
+}
+
+#msg1{
+  animation:fadeSlide 1s forwards;
+  animation-delay:5s;
+}
+
+#msg2{
+  animation:fadeSlide 1s forwards;
+  animation-delay:7s;
+}
+
+@keyframes fadeSlide{
+  0%{opacity:0; transform:translateY(10px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Cartoon -->
+  <div class="cartoon">
+    <div class="face">
+      <div class="eyes">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+      <div class="mouth"></div>
+      <div class="tear"></div>
+    </div>
+    <div class="body"></div>
+  </div>
+
+  <!-- Heart with Eva (hidden initially) -->
+  <div id="heartContainer">
+    <svg class="heart" width="150" height="150" viewBox="0 0 32 29.6">
+      <path fill="red" d="M23.6,0c-2.9,0-5.4,1.7-6.6,4.1C15.8,1.7,13.3,0,10.4,0C4.7,0,0,4.7,0,10.4
+        c0,11.8,16,19.2,16,19.2s16-7.4,16-19.2C32,4.7,27.3,0,23.6,0z"/>
+      <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#00ff00" font-size="12">Eva🫶</text>
+    </svg>
+  </div>
+
+</div>
+
+<!-- Messages -->
+<p id="msg1">Miss Daruchini🎀</p>
+<p id="msg2">yesterday night I did what makes you cute anger but I didn’t mean that, now please forgive me🥺</p>
+
+<script>
+// Show heart with Eva after 3 seconds
+setTimeout(()=>{
+  document.getElementById("heartContainer").style.opacity = 1;
+},3000);
+</script>
+
+</body>
+</html>
